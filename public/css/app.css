@@ -8316,3 +8316,12 @@ button.close {
     display: none !important;
   }
 }
+
+@font-face {
+  font-family: 'TheHeart';
+  src: url("/fonts/TheHeart.ttf");
+}
+
+.haha {
+  font-family: 'TheHeart';
+}

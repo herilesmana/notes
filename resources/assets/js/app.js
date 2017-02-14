@@ -14,6 +14,13 @@ require('./bootstrap');
  */
 
  Vue.component('app-header', require('./components/App-header.vue'));
+ Vue.component('search-panel', require('./components/Search-panel.vue'));
+ Vue.component('app-main', require('./components/Main.vue'));
+ Vue.component('pagination', require('./components/Pagination.vue'));
+ Vue.component('app-footer', require('./components/Footer.vue'));
+ Vue.component('add-button', require('./components/Add-button.vue'));
+ Vue.component('add-modal', require('./components/Add-modal.vue'));
+ Vue.component('edit-modal', require('./components/Edit-modal.vue'));
 
 const app = new Vue({
     el: '#notes-app'
