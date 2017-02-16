@@ -5,7 +5,6 @@
         </div>
 
         <div class="notes table-responsive">
-
             <table class="table">
 
                 <thead>
@@ -18,32 +17,8 @@
 
                 <tbody>
 
-                    <tr>
-                        <td>Cara Membuat sesuatu yang mudah menggunakan sesuatu</td>
-                        <td class="bl">20/03/1998</td>
-                        <td class="bl"><a href="#" data-toggle="modal" data-target="#editModal">Edit</a> Delete</td>
-                    </tr>
-
-                    <tr>
-                        <td>Cara Membuat sesuatu yang mudah menggunakan sesuatu</td>
-                        <td class="bl">20/03/1998</td>
-                        <td class="bl"><a href="#" data-toggle="modal" data-target="#editModal">Edit</a> Delete</td>
-                    </tr>
-
-                    <tr>
-                        <td>Cara Membuat sesuatu yang mudah menggunakan sesuatu</td>
-                        <td class="bl">20/03/1998</td>
-                        <td class="bl"><a href="#" data-toggle="modal" data-target="#editModal">Edit</a> Delete</td>
-                    </tr>
-
-                    <tr>
-                        <td>Cara Membuat sesuatu yang mudah menggunakan sesuatu</td>
-                        <td class="bl">20/03/1998</td>
-                        <td class="bl"><a href="#" data-toggle="modal" data-target="#editModal">Edit</a> Delete</td>
-                    </tr>
-
-                    <tr>
-                        <td>Cara Membuat sesuatu yang mudah menggunakan sesuatu</td>
+                    <tr v-for="note in notes">
+                        <td>{{ note.title }}</td>
                         <td class="bl">20/03/1998</td>
                         <td class="bl"><a href="#" data-toggle="modal" data-target="#editModal">Edit</a> Delete</td>
                     </tr>
@@ -61,7 +36,31 @@
 </template>
 
 <script>
-
+    export default {
+        data () {
+            return {
+                notes: {}
+            }
+        },
+        created () {
+            this.get_notes();
+        },
+        methods: {
+            get_notes () {
+                var vm = this;
+                axios.get('/notes')
+                .then(function (response) {
+                    if (response.status == 200) {
+                        console.log(response)
+                        Vue.set(vm.$data,'notes',response.data.data)
+                    }
+                })
+                .catch(function (error) {
+                    console.log(error);
+                });
+            }
+        }
+    }
 </script>
 
 <style>
