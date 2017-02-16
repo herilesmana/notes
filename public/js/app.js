@@ -12526,8 +12526,10 @@ module.exports = function spread(callback) {
 
 /***/ }),
 /* 38 */
-/***/ (function(module, exports) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
@@ -12565,31 +12567,31 @@ module.exports = function spread(callback) {
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
+
+/* harmony default export */ __webpack_exports__["default"] = {
+    data: function data() {
+        return {
+            notes: {}
+        };
+    },
+    created: function created() {
+        this.get_notes();
+    },
+
+    methods: {
+        get_notes: function get_notes() {
+            var vm = this;
+            axios.get('/notes').then(function (response) {
+                if (response.status == 200) {
+                    console.log(response);
+                    Vue.set(vm.$data, 'notes', response.data.data);
+                }
+            }).catch(function (error) {
+                console.log(error);
+            });
+        }
+    }
+};
 
 /***/ }),
 /* 39 */
@@ -12686,6 +12688,7 @@ window.Vue = __webpack_require__(75);
 
 window.axios = __webpack_require__(15);
 
+window.axios.defaults.baseURL = 'http://localhost:8000/api';
 window.axios.defaults.headers.common = {
   'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
   'X-Requested-With': 'XMLHttpRequest'
@@ -32726,7 +32729,15 @@ if (false) {
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', {
     staticClass: "container"
-  }, [_vm._m(0), _vm._v(" "), _vm._m(1), _vm._v(" "), _c('div', {
+  }, [_vm._m(0), _vm._v(" "), _c('div', {
+    staticClass: "notes table-responsive"
+  }, [_c('table', {
+    staticClass: "table"
+  }, [_vm._m(1), _vm._v(" "), _c('tbody', _vm._l((_vm.notes), function(note) {
+    return _c('tr', [_c('td', [_vm._v(_vm._s(note.title))]), _vm._v(" "), _c('td', {
+      staticClass: "bl"
+    }, [_vm._v("20/03/1998")]), _vm._v(" "), _vm._m(2, true)])
+  }))])]), _vm._v(" "), _c('div', {
     staticClass: "text-center"
   }, [_c('pagination')], 1)])
 },staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -32734,27 +32745,13 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: "page-header"
   }, [_c('h2', [_vm._v("Semua Catatan")])])
 },function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', {
-    staticClass: "notes table-responsive"
-  }, [_c('table', {
-    staticClass: "table"
-  }, [_c('thead', [_c('tr', [_c('th', [_vm._v("Note Title")]), _vm._v(" "), _c('th', {
+  return _c('thead', [_c('tr', [_c('th', [_vm._v("Note Title")]), _vm._v(" "), _c('th', {
     staticClass: "bl"
   }, [_vm._v("Created At")]), _vm._v(" "), _c('th', {
     staticClass: "bl"
-  }, [_vm._v("Action")])])]), _vm._v(" "), _c('tbody', [_c('tr', [_c('td', [_vm._v("Cara Membuat sesuatu yang mudah menggunakan sesuatu")]), _vm._v(" "), _c('td', {
-    staticClass: "bl"
-  }, [_vm._v("20/03/1998")]), _vm._v(" "), _c('td', {
-    staticClass: "bl"
-  }, [_c('a', {
-    attrs: {
-      "href": "#",
-      "data-toggle": "modal",
-      "data-target": "#editModal"
-    }
-  }, [_vm._v("Edit")]), _vm._v(" Delete")])]), _vm._v(" "), _c('tr', [_c('td', [_vm._v("Cara Membuat sesuatu yang mudah menggunakan sesuatu")]), _vm._v(" "), _c('td', {
-    staticClass: "bl"
-  }, [_vm._v("20/03/1998")]), _vm._v(" "), _c('td', {
+  }, [_vm._v("Action")])])])
+},function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('td', {
     staticClass: "bl"
   }, [_c('a', {
     attrs: {
@@ -32762,37 +32759,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "data-toggle": "modal",
       "data-target": "#editModal"
     }
-  }, [_vm._v("Edit")]), _vm._v(" Delete")])]), _vm._v(" "), _c('tr', [_c('td', [_vm._v("Cara Membuat sesuatu yang mudah menggunakan sesuatu")]), _vm._v(" "), _c('td', {
-    staticClass: "bl"
-  }, [_vm._v("20/03/1998")]), _vm._v(" "), _c('td', {
-    staticClass: "bl"
-  }, [_c('a', {
-    attrs: {
-      "href": "#",
-      "data-toggle": "modal",
-      "data-target": "#editModal"
-    }
-  }, [_vm._v("Edit")]), _vm._v(" Delete")])]), _vm._v(" "), _c('tr', [_c('td', [_vm._v("Cara Membuat sesuatu yang mudah menggunakan sesuatu")]), _vm._v(" "), _c('td', {
-    staticClass: "bl"
-  }, [_vm._v("20/03/1998")]), _vm._v(" "), _c('td', {
-    staticClass: "bl"
-  }, [_c('a', {
-    attrs: {
-      "href": "#",
-      "data-toggle": "modal",
-      "data-target": "#editModal"
-    }
-  }, [_vm._v("Edit")]), _vm._v(" Delete")])]), _vm._v(" "), _c('tr', [_c('td', [_vm._v("Cara Membuat sesuatu yang mudah menggunakan sesuatu")]), _vm._v(" "), _c('td', {
-    staticClass: "bl"
-  }, [_vm._v("20/03/1998")]), _vm._v(" "), _c('td', {
-    staticClass: "bl"
-  }, [_c('a', {
-    attrs: {
-      "href": "#",
-      "data-toggle": "modal",
-      "data-target": "#editModal"
-    }
-  }, [_vm._v("Edit")]), _vm._v(" Delete")])])])])])
+  }, [_vm._v("Edit")]), _vm._v(" Delete")])
 }]}
 module.exports.render._withStripped = true
 if (false) {
